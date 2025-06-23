@@ -4,6 +4,7 @@ import { useRef } from "react";
 
 import { colors } from "./colors";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const TEXT_COLORS = {
   "gray-100": "text-gray-100",
   "gray-800": "text-gray-800",
@@ -24,6 +25,7 @@ const TEXT_COLORS = {
   "yellow-50": "text-yellow-50",
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const BG_COLORS = {
   "gray-100": "bg-gray-100",
   "gray-800": "bg-gray-800",
