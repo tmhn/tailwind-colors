@@ -51,7 +51,7 @@ export default function Home() {
 
         <div
           ref={scrollTargetRef}
-          className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          className="mt-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
         >
           {colors.map((item) => (
             <ColorSwatchModal key={item.id} item={item} />

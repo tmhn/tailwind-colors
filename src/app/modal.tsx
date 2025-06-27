@@ -90,7 +90,7 @@ export default function ColorSwatchModal({ item }: ModalProps) {
         className="group hover:cursor-pointer w-full"
       >
         <div
-          className={`rounded-3xl h-64 flex items-center justify-center transition-transform duration-300 ease-in-out transform hover:-translate-y-2 bg-${item.twBackground}`}
+          className={`rounded-3xl aspect-square flex items-center justify-center transition-transform duration-300 ease-in-out transform hover:-translate-y-2 bg-${item.twBackground}`}
         >
           <h3
             className={`text-xl sm:text-2xl text-${item.twForeground} font-[family-name:var(--font-figtree-sans)] font-bold text-center px-6 sm:px-10 break-words leading-snug`}
