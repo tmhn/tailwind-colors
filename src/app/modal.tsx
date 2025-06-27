@@ -135,7 +135,7 @@ export default function ColorSwatchModal({ item }: ModalProps) {
                       >
                         The Snooty Fox took his coffee strong, his sandwiches
                         posh, and his morning stroll down Jermyn Street precise.
-                        He'd then nod curtly at Buckingham Palace before
+                        He&apos;d then nod curtly at Buckingham Palace before
                         vanishing into a plume of bergamot.
                       </h3>
                     </div>
