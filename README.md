@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://colors.tmhn.io/favicon.ico" width="64" height="64" alt="Tailwind Colors favicon" />
+</p>
+
 # Tailwind Colors
 
 This is a small, responsive web app for browsing and exploring pleasing Tailwind CSS color combinations. It showcases background and text color pairings using Tailwind utility classes, and is intended as a simple reference tool or design inspiration board.
