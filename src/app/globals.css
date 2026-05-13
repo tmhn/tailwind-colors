@@ -1,46 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-ink:       #0d0c0a;
+  --bg-surface:   #171513;
+  --bg-raised:    #211f1c;
+  --border:       #2b2824;
+  --text-cream:   #ede7d9;
+  --text-muted:   #7d766c;
+  --text-faint:   #3e3b37;
+  --gold:         #c8992e;
+  --gold-light:   #e6b84a;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --color-background: var(--bg-ink);
+  --color-foreground: var(--text-cream);
+  --font-sans: var(--font-figtree-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg-ink);
+  color: var(--text-cream);
+  font-family: var(--font-figtree-sans), sans-serif;
 }
 
-@keyframes gradient-x {
-  0% {
-    background-position: 0% center;
-  }
-  100% {
-    background-position: 100% center;
-  }
+/* Grain texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.032;
+  pointer-events: none;
+  z-index: 9999;
 }
 
-.animated-gradient {
-  background: linear-gradient(90deg, #6366f1, #4338ca, #6366f1);
-  background-size: 200% 200%;
-  background-position: 0% center;
-  transition: background-position 0.3s ease-in-out;
+/* Hero stagger */
+@keyframes hero-enter {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.animated-gradient:hover {
-  animation: gradient-x 2s ease-in-out infinite;
+.hero-eyebrow { animation: hero-enter 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both; }
+.hero-title   { animation: hero-enter 0.7s  cubic-bezier(0.22, 1, 0.36, 1) 0.15s both; }
+.hero-sub     { animation: hero-enter 0.7s  cubic-bezier(0.22, 1, 0.36, 1) 0.25s both; }
+.hero-cta     { animation: hero-enter 0.7s  cubic-bezier(0.22, 1, 0.36, 1) 0.35s both; }
+
+/* Swatch cards */
+@keyframes swatch-enter {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+.swatch-card {
+  animation: swatch-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Gold CTA button */
+@keyframes gold-shimmer {
+  from { background-position: 0% center; }
+  to   { background-position: 200% center; }
+}
+
+.btn-gold {
+  background: linear-gradient(108deg, #b08020, #e8c050, #966c18, #d4a83a, #b08020);
+  background-size: 300% 100%;
+  color: #1c1200;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.btn-gold:hover {
+  animation: gold-shimmer 2s linear infinite;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px -6px rgba(196, 152, 40, 0.55);
 }
