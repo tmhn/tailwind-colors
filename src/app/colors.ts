@@ -76,7 +76,7 @@ export const colors =   [
     "name": "Centre Court",
     "twBackground": "green-300",
     "twForeground": "green-800",
-    "id": "04298a5d-2fcc-4a72-9bb6-7d3da4480860"
+    "id": "c1a2b3d4-e5f6-7890-abcd-ef1234567890"
   },
   {
     "name": "Strand Walk",
@@ -94,7 +94,92 @@ export const colors =   [
     "name": "Cabinet",
     "twBackground": "teal-950",
     "twForeground": "orange-300",
-    "id": "04298a5d-2fcc-4a72-9bb6-7d3da4480862"
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567891"
   },
-  
+
+  // ── New palettes ──
+  {
+    "name": "Cotswold Walk",
+    "twBackground": "stone-200",
+    "twForeground": "green-900",
+    "id": "c0t5w0ld-walk-4a72-9bb6-7d3da4481001"
+  },
+  {
+    "name": "Royal Mile",
+    "twBackground": "slate-800",
+    "twForeground": "amber-400",
+    "id": "r0ya1m1le-f6f6-4a72-9bb6-7d3da4481002"
+  },
+  {
+    "name": "Portobello Market",
+    "twBackground": "orange-500",
+    "twForeground": "white",
+    "id": "p0rt0bel-l0mk-4a72-9bb6-7d3da4481003"
+  },
+  {
+    "name": "Kew Gardens",
+    "twBackground": "green-800",
+    "twForeground": "yellow-50",
+    "id": "kewg4rdn-s5f6-4a72-9bb6-7d3da4481004"
+  },
+  {
+    "name": "Primrose Hill",
+    "twBackground": "lime-400",
+    "twForeground": "slate-800",
+    "id": "pr1mr0se-h1ll-4a72-9bb6-7d3da4481005"
+  },
+  {
+    "name": "Covent Garden",
+    "twBackground": "rose-800",
+    "twForeground": "orange-100",
+    "id": "c0v3ntgd-n5f6-4a72-9bb6-7d3da4481006"
+  },
+  {
+    "name": "Tower Bridge",
+    "twBackground": "sky-700",
+    "twForeground": "gray-100",
+    "id": "t0w3rbr1-dg5f-4a72-9bb6-7d3da4481007"
+  },
+  {
+    "name": "Yorkshire Dales",
+    "twBackground": "green-700",
+    "twForeground": "stone-300",
+    "id": "y0rks4re-d4le-4a72-9bb6-7d3da4481008"
+  },
+  {
+    "name": "Blackpool Pier",
+    "twBackground": "blue-600",
+    "twForeground": "yellow-300",
+    "id": "bl4ckp00-lp1r-4a72-9bb6-7d3da4481009"
+  },
+  {
+    "name": "Cornish Cliff",
+    "twBackground": "slate-500",
+    "twForeground": "emerald-300",
+    "id": "c0rn1shc-l1ff-4a72-9bb6-7d3da4481010"
+  },
+  {
+    "name": "Piccadilly",
+    "twBackground": "red-700",
+    "twForeground": "amber-100",
+    "id": "p1cc4d1l-ly56-4a72-9bb6-7d3da4481011"
+  },
+  {
+    "name": "The Moorlands",
+    "twBackground": "amber-800",
+    "twForeground": "stone-300",
+    "id": "th3m00rl-4nds-4a72-9bb6-7d3da4481012"
+  },
+  {
+    "name": "Camden Lock",
+    "twBackground": "teal-800",
+    "twForeground": "amber-400",
+    "id": "c4md3nl0-ck56-4a72-9bb6-7d3da4481013"
+  },
+  {
+    "name": "Beach Coast",
+    "twBackground": "cyan-200",
+    "twForeground": "slate-700",
+    "id": "b34chc04-st56-4a72-9bb6-7d3da4481014"
+  },
 ]

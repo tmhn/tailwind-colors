@@ -1,11 +1,22 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { colors } from "./colors";
+
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 import ColorSwatchModal from "./modal";
 
 export default function Home() {
   const scrollTargetRef = useRef<HTMLDivElement | null>(null);
+  const [deck, setDeck] = useState(colors);
+  useEffect(() => { setDeck(shuffle(colors)); }, []);
 
   const handleScroll = () => {
     scrollTargetRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -45,7 +56,7 @@ export default function Home() {
           <div className="hero-cta mt-10">
             <button
               onClick={handleScroll}
-              className="btn-gold inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-[11px] font-[family-name:var(--font-raleway-sans)] font-bold tracking-[0.18em] uppercase cursor-pointer"
+              className="btn-primary inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-[11px] font-[family-name:var(--font-raleway-sans)] font-bold tracking-[0.18em] uppercase cursor-pointer"
             >
               Browse Palettes
               <svg
@@ -67,7 +78,7 @@ export default function Home() {
           ref={scrollTargetRef}
           className="py-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5"
         >
-          {colors.map((item, index) => (
+          {deck.map((item, index) => (
             <ColorSwatchModal key={item.id} item={item} index={index} />
           ))}
         </div>

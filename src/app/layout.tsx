@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Raleway, Figtree, Lora } from "next/font/google";
 import "./globals.css";
+import ThemeToggle from "./theme-toggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,10 +39,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Prevent flash of wrong theme on load */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('theme')||'dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');else if(t==='light')document.documentElement.setAttribute('data-theme','light');})();`,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${ralewaySans.variable} ${figtreeSans.variable} ${loraSerif.variable} antialiased`}
+        suppressHydrationWarning
       >
+        <ThemeToggle />
         {children}
       </body>
     </html>

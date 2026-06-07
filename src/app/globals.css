@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-:root {
+/* ── Dark theme (default) ── */
+:root,
+[data-theme="dark"] {
   --bg-ink:       #0d0c0a;
   --bg-surface:   #171513;
   --bg-raised:    #211f1c;
@@ -10,6 +12,34 @@
   --text-faint:   #3e3b37;
   --gold:         #c8992e;
   --gold-light:   #e6b84a;
+}
+
+/* ── Light theme ── */
+[data-theme="light"] {
+  --bg-ink:       #faf7f2;
+  --bg-surface:   #f4f0e6;
+  --bg-raised:    #ede6d6;
+  --border:       #d4cbbf;
+  --text-cream:   #1c1a17;
+  --text-muted:   #6b6357;
+  --text-faint:   #b0a898;
+  --gold:         #a07820;
+  --gold-light:   #c49a2c;
+}
+
+/* ── System: auto light ── */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg-ink:       #faf7f2;
+    --bg-surface:   #f4f0e6;
+    --bg-raised:    #ede6d6;
+    --border:       #d4cbbf;
+    --text-cream:   #1c1a17;
+    --text-muted:   #6b6357;
+    --text-faint:   #b0a898;
+    --gold:         #a07820;
+    --gold-light:   #c49a2c;
+  }
 }
 
 @theme inline {
@@ -23,6 +53,7 @@ body {
   background: var(--bg-ink);
   color: var(--text-cream);
   font-family: var(--font-figtree-sans), sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 /* Grain texture */
@@ -57,21 +88,74 @@ body::before {
   animation: swatch-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Gold CTA button */
-@keyframes gold-shimmer {
-  from { background-position: 0% center; }
-  to   { background-position: 200% center; }
+/* ── Browse Palettes button ── */
+.btn-primary {
+  background: transparent;
+  color: var(--text-cream);
+  border: 1.5px solid var(--border);
+  transition:
+    background 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    transform 0.2s ease,
+    box-shadow 0.25s ease;
 }
 
-.btn-gold {
-  background: linear-gradient(108deg, #b08020, #e8c050, #966c18, #d4a83a, #b08020);
-  background-size: 300% 100%;
-  color: #1c1200;
-  transition: transform 0.2s ease, box-shadow 0.25s ease;
-}
-
-.btn-gold:hover {
-  animation: gold-shimmer 2s linear infinite;
+.btn-primary:hover {
+  background: var(--text-cream);
+  color: var(--bg-ink);
+  border-color: var(--text-cream);
   transform: translateY(-1px);
-  box-shadow: 0 8px 28px -6px rgba(196, 152, 40, 0.55);
+  box-shadow: 0 8px 24px -6px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Theme toggle button ── */
+.theme-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 200;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition:
+    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.2s ease;
+  color: var(--text-muted);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.35);
+  color: var(--text-cream);
+}
+
+@keyframes icon-spin-in {
+  from { opacity: 0; transform: rotate(-70deg) scale(0.5); }
+  to   { opacity: 1; transform: rotate(0deg)   scale(1);   }
+}
+
+.theme-icon-anim {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: icon-spin-in 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Sun slow spin while in light mode */
+@keyframes sun-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.sun-spin {
+  animation: sun-rotate 18s linear infinite;
 }
